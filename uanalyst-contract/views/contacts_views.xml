@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="adding_button_to_contacts_form_view" model="ir.ui.view">
+            <field name="name">adding button</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form//sheet//div[@name='button_box']" position="inside">
+                    <button class="oe_stat_button" type="object" name="open_action_contract"
+                            icon="fa-file-text-o">
+                        <field name="contract_count" widget="statinfo"/>
+                    </button>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

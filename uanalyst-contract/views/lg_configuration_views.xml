@@ -1,0 +1,87 @@
+<odoo>
+    <data>
+
+        <record id="lg_configuration_action_form_view" model="ir.ui.view">
+            <field name="name">lg.configuration.form.view</field>
+            <field name="model">lg.configuration</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Lg Configuration Form">
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <!--                            <button class="oe_stat_button" type="object" name="action_projects"-->
+                            <!--                                    icon="fa-file-text-o">-->
+                            <!--                                <field name="projects" widget="statinfo"/>-->
+                            <!--                            </button>-->
+                            <!--                            <button class="oe_stat_button" type="object" name="action_pos"-->
+                            <!--                                    icon="fa-file-text-o">-->
+                            <!--                                <field name="pos" widget="statinfo"/>-->
+                            <!--                            </button>-->
+                        </div>
+                        <div class="oe_title">
+                            <!--                            <label for="name" class="oe_edit_only" string="Cost Name"/>-->
+                            <h1>
+                                <field name="lg_number" readonly="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="lg_number"/>
+                                <field name="amount"/>
+                                <field name="lg_type"/>
+                                <field name="bank_id"/>
+                            </group>
+                            <group>
+                                <field name="issuance_date"/>
+                                <field name="end_date"/>
+                                <field name="state"/>
+                                <field name="coverage_amount"/>
+                                <field name="covered_percentage" widget="percentage"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+
+            </field>
+        </record>
+
+        <record id="lg_configuration_action_tree_view" model="ir.ui.view">
+            <field name="name">lg.configuration.tree.view</field>
+            <field name="model">lg.configuration</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree multi_edit="1" string="Lg Configuration Tree">
+                    <field name="lg_number"/>
+                    <field name="lg_type"/>
+                    <field name="bank_id"/>
+                    <field name="issuance_date"/>
+                    <field name="end_date"/>
+                    <field name="amount"/>
+                    <field name="coverage_amount"/>
+                    <field name="covered_percentage" widget="percentage"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="lg_configuration_action" model="ir.actions.act_window">
+            <field name="name">LG</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">lg.configuration</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="lg_configuration_menu"
+                  name="LG Configuration"
+                  parent="uanalyst-contract.contract_configuration_menu"
+                  action="uanalyst-contract.lg_configuration_action"/>
+    </data>
+</odoo>

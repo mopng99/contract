@@ -1,0 +1,65 @@
+<odoo>
+    <data>
+
+        <record id="accepted_view_form" model="ir.ui.view">
+            <field name="name">accepted.form</field>
+            <field name="model">accepted</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+
+                        </group>
+                        <footer>
+
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="accepted_action_tree_view" model="ir.ui.view">
+            <field name="name">accepted.tree.view</field>
+            <field name="model">accepted</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <header>
+
+                </header>
+                <tree string="Po Line Tree">
+                    <field name="po_no"/>
+<!--                    <field name="line_id"/>-->
+<!--                    <field name="site_name"/>-->
+<!--                    <field name="site_code"/>-->
+<!--                    <field name="item_code"/>-->
+<!--                    <field name="item_description"/>-->
+<!--                    <field name="requested_quantity"/>-->
+<!--                    <field name="unite_price"/>-->
+                    <field name="line_amount"/>
+                    <field name="tax_rate"/>
+                    <field name="accepted_amount"/>
+                    <field name="accepted"/>
+
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="published_date"/>
+<!--                    <field name="project_manager"/>-->
+                </tree>
+            </field>
+        </record>
+
+        <record id="accepted_action" model="ir.actions.act_window">
+            <field name="name">Accepted</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">accepted</field>
+            <field name="view_mode">tree</field>
+        </record>
+        <menuitem id="accepted_menu"
+                  name="Accepted"
+                  parent="uanalyst-contract.contract_menu_root"
+                  action="uanalyst-contract.accepted_action"
+                  sequence="20"/>
+
+    </data>
+</odoo>

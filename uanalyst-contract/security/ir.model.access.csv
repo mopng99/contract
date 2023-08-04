@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_contract,access.contract,model_contract,base.group_user,1,1,1,1
+access_contract_line,access.contract.line,model_contract_line,base.group_user,1,1,1,1
+access_lg_configuration,access.lg.configuration,model_lg_configuration,base.group_user,1,1,1,1
+access_payment_terms,access.payment.terms,model_payment_terms,base.group_user,1,1,1,1
+access_po,access.po,model_po,base.group_user,1,1,1,1
+access_po_line,access.po_line,model_po_line,base.group_user,1,1,1,1
+access_accepted,access.accepted,model_accepted,base.group_user,1,1,1,1
+access_site,access.site,model_site,base.group_user,1,1,1,1

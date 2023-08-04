@@ -1,0 +1,70 @@
+<odoo>
+    <data>
+
+        <record id="payment_terms_action_form_view" model="ir.ui.view">
+            <field name="name">payment.terms.form.view</field>
+            <field name="model">payment.terms</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Payment Terms Form">
+                    <header>
+                        <!--                        <field name="state" widget="statusbar"/>-->
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <!--                            <button class="oe_stat_button" type="object" name="action_projects"-->
+                            <!--                                    icon="fa-file-text-o">-->
+                            <!--                                <field name="projects" widget="statinfo"/>-->
+                            <!--                            </button>-->
+                            <!--                            <button class="oe_stat_button" type="object" name="action_pos"-->
+                            <!--                                    icon="fa-file-text-o">-->
+                            <!--                                <field name="pos" widget="statinfo"/>-->
+                            <!--                            </button>-->
+                        </div>
+                        <div class="oe_title">
+                            <!--                            <label for="name" class="oe_edit_only" string="Cost Name"/>-->
+                            <h1>
+                                <!--                                <field name="name" readonly="1"/>-->
+                            </h1>
+                        </div>
+                        <group>
+
+                            <group>
+                                <field name="field1"/>
+                            </group>
+
+                        </group>
+                    </sheet>
+                    <!--                    <div class="oe_chatter">-->
+                    <!--                        <field name="message_follower_ids"/>-->
+                    <!--                        <field name="message_ids"/>-->
+                    <!--                    </div>-->
+                </form>
+
+            </field>
+        </record>
+
+        <record id="payment_terms_action_tree_view" model="ir.ui.view">
+            <field name="name">payment.terms.tree.view</field>
+            <field name="model">payment.terms</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Payment Terms Tree">
+                    <field name="field1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="payment_terms_action" model="ir.actions.act_window">
+            <field name="name">Payment Terms</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">payment.terms</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="payment_terms_menu"
+                  name="Payment Terms"
+                  parent="uanalyst-contract.contract_configuration_menu"
+                  action="uanalyst-contract.payment_terms_action"/>
+    </data>
+</odoo>

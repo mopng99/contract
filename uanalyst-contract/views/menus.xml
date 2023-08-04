@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="contract_menu_root"
+              name="Contracts"
+              parent="sale.sale_menu_root"
+              sequence="40"/>
+    <menuitem id="contract_configuration_menu"
+              name="Configuration"
+              parent="uanalyst-contract.contract_menu_root"
+              sequence="30"/>
+</odoo>

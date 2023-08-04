@@ -1,0 +1,80 @@
+<odoo>
+    <data>
+
+        <record id="po_lines_details_view_form" model="ir.ui.view">
+            <field name="name">po.lines.details.form</field>
+            <field name="model">po.line</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="selected_accepted_amount"/>
+                            <field name="accepted"/>
+                        </group>
+                        <footer>
+                            <button string="Confirm" name="action_accept" type="object"
+                                    class="btn-primary"/>
+                            <button string="Cancel" special="cancel" class="btn btn-default"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="po_line_action_tree_view" model="ir.ui.view">
+            <field name="name">po.line.tree.view</field>
+            <field name="model">po.line</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Po Line Tree" editable="top">
+                    <header>
+                        <button name="open_wizard" string="Accept" type="object" states="requested"
+                                class="oe_highlight"/>
+                    </header>
+                    <field name="po_no"/>
+                    <field name="line_id"/>
+                    <field name="site_id"/>
+                    <field name="site_code"/>
+                    <field name="item_code"/>
+                    <field name="item_description_id" context="{'special_display_name': True}"/>
+                    <field name="requested_quantity"/>
+                    <field name="unit_price"/>
+                    <field name="line_amount"/>
+                    <field name="tax_rate"/>
+
+                    <!--                    <field name="qty"/>-->
+                    <field name="accepted_amount"/>
+                    <field name="accepted"/>
+                    <field name="remaining_quantity"/>
+
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="published_date"/>
+                    <field name="project_manager"/>
+                    <field name="statues"
+                           decoration-success="statues == 'acceptance'"
+                           decoration-info="statues == 'new'"
+                           decoration-danger="statues == 'cancel'"
+                           decoration-warning="statues == 'done'"
+                           widget="badge"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="po_line_action" model="ir.actions.act_window">
+            <field name="name">Sub Contracting</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">po.line</field>
+            <field name="view_mode">tree</field>
+            <!--            <field name="view_id" ref="po_line_action_tree_view"/>-->
+
+        </record>
+        <menuitem id="po_line_menu"
+                  name="Sub Contracting"
+                  parent="uanalyst-contract.contract_menu_root"
+                  action="uanalyst-contract.po_line_action"
+                  sequence="15"/>
+
+    </data>
+</odoo>

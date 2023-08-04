@@ -1,0 +1,48 @@
+<odoo>
+    <data>
+
+        <record id="site_view_form" model="ir.ui.view">
+            <field name="name">site.form</field>
+            <field name="model">site</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="site_code"/>
+                            <field name="site_name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="site_action_tree_view" model="ir.ui.view">
+            <field name="name">site.tree.view</field>
+            <field name="model">site</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <header>
+
+                </header>
+                <tree string="Site Tree">
+                    <field name="site_code"/>
+                    <field name="site_name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="site_action" model="ir.actions.act_window">
+            <field name="name">Site</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">site</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="site_menu"
+                  name="Site"
+                  parent="uanalyst-contract.contract_menu_root"
+                  action="uanalyst-contract.site_action"
+                  sequence="25"/>
+
+    </data>
+</odoo>
